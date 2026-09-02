@@ -31,7 +31,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.couverture-vasseur.fr"),
+  metadataBase: new URL("https://www.couverture-vasseur-ozymandias.vercel.app/"),
 
   title: {
     default:
