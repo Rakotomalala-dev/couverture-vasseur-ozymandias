@@ -6,11 +6,14 @@ import {
 } from "next/font/google";
 
 import "./globals.css";
+
 import MobileActionBar from "@/components/layout/MobileActionBar";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 import FloatingCTA from "@/components/layout/FloatingCTA";
 import CookieConsent from "@/components/layout/CookieConsent";
+
+const SITE_URL = "https://www.couverture-vasseur-ozymandias.vercel.app";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -31,7 +34,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.couverture-vasseur-ozymandias.vercel.app/"),
+  metadataBase: new URL(SITE_URL),
 
   title: {
     default:
@@ -70,12 +73,13 @@ export const metadata: Metadata = {
   ],
 
   alternates: {
-    canonical: "/",
+    canonical: SITE_URL + "/",
   },
 
   robots: {
     index: true,
     follow: true,
+
     googleBot: {
       index: true,
       follow: true,
@@ -99,7 +103,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "fr_FR",
-    url: "/",
+    url: SITE_URL + "/",
     siteName: "Couverture Vasseur",
 
     title:
@@ -110,7 +114,7 @@ export const metadata: Metadata = {
 
     images: [
       {
-        url: "/og-image.jpg",
+        url: SITE_URL + "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Couverture Vasseur — Artisan couvreur à Angers",
@@ -121,13 +125,12 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
 
-    title:
-      "Couvreur à Angers — Couverture Vasseur",
+    title: "Couvreur à Angers — Couverture Vasseur",
 
     description:
       "Artisan couvreur RGE Qualibat à Angers. Toiture, ardoise naturelle, rénovation et zinguerie.",
 
-    images: ["/og-image.jpg"],
+    images: [SITE_URL + "/og-image.jpg"],
   },
 
   category: "Construction et couverture",
@@ -153,7 +156,6 @@ export default function RootLayout({
 
           <Footer />
 
-          {/* Espace réservé à la barre d'action mobile */}
           <div
             className="h-14 lg:hidden"
             aria-hidden="true"
@@ -161,9 +163,9 @@ export default function RootLayout({
 
           <MobileActionBar />
           <FloatingCTA />
-             <CookieConsent />
+          <CookieConsent />
         </div>
-        </body>
+      </body>
     </html>
   );
 }
